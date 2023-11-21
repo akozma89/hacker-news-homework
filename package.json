@@ -5,11 +5,13 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:doc": "npm run compodoc",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint && npm run lint:style",
     "lint:style": "npx stylelint **/*.scss",
-    "lint:fix": "ng lint --fix && npx stylelint **/*.scss --fix"
+    "lint:fix": "ng lint --fix && npx stylelint **/*.scss --fix",
+    "compodoc": "npx compodoc -p tsconfig.doc.json"
   },
   "private": true,
   "dependencies": {
@@ -34,6 +36,7 @@
     "@angular-eslint/template-parser": "16.3.1",
     "@angular/cli": "^16.2.7",
     "@angular/compiler-cli": "^16.2.0",
+    "@compodoc/compodoc": "^1.1.22",
     "@types/jasmine": "~4.3.0",
     "@types/node": "^20.9.3",
     "@typescript-eslint/eslint-plugin": "5.62.0",
