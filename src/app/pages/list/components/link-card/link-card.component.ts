@@ -1,23 +1,23 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { HelperService } from 'src/app/services/helper.service';
+import { Component, Input, OnInit } from "@angular/core";
+import { HelperService } from "src/app/services/helper.service";
 
 @Component({
-  selector: 'app-link-card',
-  templateUrl: './link-card.component.html',
-  styleUrls: ['./link-card.component.scss']
+    selector: "app-link-card",
+    templateUrl: "./link-card.component.html",
+    styleUrls: ["./link-card.component.scss"]
 })
 export class LinkCardComponent implements OnInit {
-  @Input() item!: any;
+    @Input() item!: any;
 
-  timePassed!: string;
+    timePassed!: string;
 
-  ngOnInit(): void {
-    this.timePassed = HelperService.timeSince(
-      new Date((this.item?.time || 0) * 1000)
-    );
-  }
+    ngOnInit(): void {
+        this.timePassed = HelperService.timeSince(
+            new Date((this.item?.time || 0) * 1000)
+        );
+    }
 
-  openLink() {
-    HelperService.openLink(this.item?.url);
-  }
+    openLink() {
+        HelperService.openLink(this.item?.url);
+    }
 }

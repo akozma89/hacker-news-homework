@@ -6,6 +6,9 @@ The project was generated with [Angular CLI](https://github.com/angular/angular-
 ## Deployed result
 You can find this project here: [https://hacker-news-homework.vercel.app/](https://hacker-news-homework.vercel.app/)
 
+## Local install
+`npm i --legacy-peer-deps`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
