@@ -56,7 +56,7 @@ export class ListPageComponent implements OnInit, OnDestroy {
 
         this.subscriptions.add(
             this.pageService
-                .getPageOfData(this.currentLink, this.currentPage, this.pageSize)
+                .getDataOfPage(this.currentLink, this.currentPage, this.pageSize)
                 .subscribe({
                     next: (pageData: any) => {
                         this.maxPage = pageData.maxPage;

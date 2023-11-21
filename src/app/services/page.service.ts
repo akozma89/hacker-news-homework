@@ -15,9 +15,33 @@ import {
  * Page Service
  */
 export class PageService {
-    data: any = {};
+    private data: any = {};
 
     constructor(private hackerNewsApiService: HackerNewsApiService, private localStorageService: LocalStorageService) {}
+
+    /**
+     * Get data of page
+     * @param {keyof HackerNewsApiService} targetAPI Target API
+     * @param {number} page Page number
+     * @param {number} pageSize Page size
+     * @returns {Observable<any>} Observable of data
+     */
+    getDataOfPage(targetAPI: keyof HackerNewsApiService, page: number, pageSize: number) {
+        const start = (page - 1) * pageSize;
+        const end = page * pageSize;
+
+        return this.fetchData(targetAPI).pipe(
+            switchMap((ids: number[]) => this.buildForkJoin(ids.slice(start, end))
+                .pipe(
+                    switchMap((data: any[]) => of({
+                        data,
+                        currentPage: page,
+                        pageSize,
+                        maxPage: Math.ceil(ids.length / pageSize),
+                    })),
+                )),
+        );
+    }
 
     /**
      * Fetch data
@@ -54,7 +78,7 @@ export class PageService {
     }
 
     /**
-     * Build fork join
+     * Build fork join for getting individual items
      * @param {number[]} ids IDs of items
      * @returns {Observable<any>} Observable of data
      */
@@ -79,29 +103,5 @@ export class PageService {
 
             return this.data[id];
         }));
-    }
-
-    /**
-     * Get page of data
-     * @param {keyof HackerNewsApiService} targetAPI Target API
-     * @param {number} page Page number
-     * @param {number} pageSize Page size
-     * @returns {Observable<any>} Observable of data
-     */
-    getPageOfData(targetAPI: keyof HackerNewsApiService, page: number, pageSize: number) {
-        const start = (page - 1) * pageSize;
-        const end = page * pageSize;
-
-        return this.fetchData(targetAPI).pipe(
-            switchMap((ids: number[]) => this.buildForkJoin(ids.slice(start, end))
-                .pipe(
-                    switchMap((data: any[]) => of({
-                        data,
-                        currentPage: page,
-                        pageSize,
-                        maxPage: Math.ceil(ids.length / pageSize),
-                    })),
-                )),
-        );
     }
 }

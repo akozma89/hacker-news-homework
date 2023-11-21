@@ -13,7 +13,7 @@ import {
  * Hacker News API Service
  */
 export class HackerNewsApiService {
-    baseUrl = "https://hacker-news.firebaseio.com/v0/";
+    private baseUrl = "https://hacker-news.firebaseio.com/v0/";
 
     constructor(private http: HttpClient, private helperService: HelperService) {}
 

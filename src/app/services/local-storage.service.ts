@@ -7,7 +7,7 @@ import { Injectable } from "@angular/core";
  * Local Storage Service
  */
 export class LocalStorageService {
-    localStorage = window.localStorage;
+    private localStorage = window.localStorage;
 
     /**
      * Set item in local storage

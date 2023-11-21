@@ -63,9 +63,7 @@ export class HelperService {
      * @param {Date} date Date
      * @returns {string} Time since
      */
-    static timeSince(date: Date): string {
-        const currentDate = new Date();
-
+    static timeSince(date: Date, currentDate = new Date()): string {
         if (!isBefore(date, currentDate)) {
             return "0 seconds";
         }
