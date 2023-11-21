@@ -1,6 +1,10 @@
 # HackerNewsHomework
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
+This project was made as a homework for a Genesys position.
+The project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
+
+## Deployed result
+You can find this project here: [https://hacker-news-homework.vercel.app/](https://hacker-news-homework.vercel.app/)
 
 ## Development server
 

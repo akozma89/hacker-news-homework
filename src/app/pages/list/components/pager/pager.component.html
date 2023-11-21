@@ -1,0 +1,8 @@
+<ul>
+  <ng-container *ngFor="let page of visiblePages">
+    <li *ngIf="page !== null" class="clickable" [ngClass]="{ active: currentPage === page, clickable: currentPage !== page }" (click)="setPageNumber(page)">
+      {{ page }}
+    </li>
+    <li *ngIf="page === null" class="no-border">...</li>
+  </ng-container>
+</ul>

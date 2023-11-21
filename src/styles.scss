@@ -1,0 +1,65 @@
+@import url('./app/styles/colors.scss');
+@import url('./app/styles/layout.scss');
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
+h1, h2, h3 {
+  margin: 0 0 1rem;
+  color: var(--primary-color);
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--link-color);
+
+  :visited {
+    color: var(--link-color-visited);
+  }
+}
+
+p {
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.no-border {
+  border: none !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.full-width {
+  width: 100% !important;
+}
+
+.hidden {
+  display: none !important;
+}

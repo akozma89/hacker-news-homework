@@ -1,0 +1,12 @@
+<div class="logo container clickable" routerLink="/">
+  <h1><span>Y</span>Hacker News</h1>
+</div>
+<header>
+  <nav class="container">
+    <ul>
+      <li *ngFor="let item of navList" [routerLink]="item.link" class="clickable" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        {{ item.label }}
+      </li>
+    </ul>
+  </nav>
+</header>

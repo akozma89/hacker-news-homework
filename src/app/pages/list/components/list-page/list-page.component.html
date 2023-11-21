@@ -1,0 +1,12 @@
+<section *ngIf="data && !hasError">
+  <app-link-card *ngFor="let item of data" [item]="item"></app-link-card>
+  <app-pager [currentPage]="currentPage" [maxPage]="maxPage" (pageChange)="setPageNumber($event)"></app-pager>
+</section>
+
+<section *ngIf="!data && !hasError">
+  <p>Loading...</p>
+</section>
+
+<section *ngIf="hasError">
+  <p>An error occured while fetching the data. Please try again later.</p>
+</section>

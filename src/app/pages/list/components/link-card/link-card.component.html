@@ -1,0 +1,25 @@
+<article class="card row">
+  <div class="col content-col">
+    <div class="col header">
+      <ng-container [ngSwitch]="item?.type">
+        <span *ngSwitchCase="'story'" class="material-symbols-outlined">
+          {{ item?.url ? 'link' : 'text_snippet' }}
+        </span>
+        <span *ngSwitchCase="'comment'" class="material-symbols-outlined">comment</span>
+        <span *ngSwitchCase="'job'" class="material-symbols-outlined">work</span>
+        <span *ngSwitchCase="'poll'" class="material-symbols-outlined">how_to_vote</span>
+        <span *ngSwitchCase="'pollopt'" class="material-symbols-outlined">ballot</span>
+        <span *ngSwitchDefault class="material-symbols-outlined">help</span>
+      </ng-container>
+      <h2 [ngClass]="{ clickable: item?.url }" (click)="item?.url && openLink()" [title]="item?.url ? 'Navigates to: ' + item.url : item?.title">{{ item?.title }}</h2>
+      <h3 *ngIf="item?.url" [ngClass]="{ clickable: item?.url }" (click)="item?.url && openLink()" [title]="'Navigates to: ' + item.url">({{ item.url | hostname }})</h3>
+    </div>
+    <div class="col content" [ngClass]="{ 'no-padding': !item?.text }">
+      <p class="has-text" *ngIf="item?.text" [innerHtml]="item.text"></p>
+      <p class="creation">{{ timePassed }} ago by <span>#{{ item?.by || 'Unknown' }}</span> ({{ item?.score || 0 }} points)</p>
+    </div>
+  </div>
+  <span *ngIf="item?.url" class="link-icon hover-visible clickable material-symbols-outlined"  [title]="item?.url ? 'Navigates to: ' + item.url : item?.title" (click)="item?.url && openLink()">
+    open_in_new
+  </span>
+</article>
