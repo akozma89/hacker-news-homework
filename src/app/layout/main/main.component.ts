@@ -5,4 +5,7 @@ import { Component } from "@angular/core";
     templateUrl: "./main.component.html",
     styleUrls: ["./main.component.scss"]
 })
+/**
+ * Main Component
+ */
 export class MainComponent {}

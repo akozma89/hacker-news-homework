@@ -11,11 +11,19 @@ import {
 @Injectable({
     providedIn: "root"
 })
+/**
+ * Page Service
+ */
 export class PageService {
     data: any = {};
 
     constructor(private hackerNewsApiService: HackerNewsApiService, private localStorageService: LocalStorageService) {}
 
+    /**
+     * Fetch data
+     * @param {keyof HackerNewsApiService} targetAPI Target API
+     * @returns {Observable<any>} Observable of data
+     */
     private fetchData(targetAPI: keyof HackerNewsApiService) {
         if (!this.data[targetAPI]) {
             switch (targetAPI) {
@@ -45,6 +53,11 @@ export class PageService {
         return this.data[targetAPI];
     }
 
+    /**
+     * Build fork join
+     * @param {number[]} ids IDs of items
+     * @returns {Observable<any>} Observable of data
+     */
     private buildForkJoin(ids: number[]) {
         return forkJoin(ids.map((id) => {
             const storedData = this.localStorageService.getItem(`item-${id}`);
@@ -68,6 +81,13 @@ export class PageService {
         }));
     }
 
+    /**
+     * Get page of data
+     * @param {keyof HackerNewsApiService} targetAPI Target API
+     * @param {number} page Page number
+     * @param {number} pageSize Page size
+     * @returns {Observable<any>} Observable of data
+     */
     getPageOfData(targetAPI: keyof HackerNewsApiService, page: number, pageSize: number) {
         const start = (page - 1) * pageSize;
         const end = page * pageSize;

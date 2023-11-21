@@ -7,6 +7,9 @@ import {
     templateUrl: "./pager.component.html",
     styleUrls: ["./pager.component.scss"]
 })
+/**
+ * Pager Component
+ */
 export class PagerComponent implements OnChanges {
     @Input() currentPage = 1;
     @Input() maxPage = 1;
@@ -15,14 +18,24 @@ export class PagerComponent implements OnChanges {
 
     visiblePages: any[] = [];
 
+    /**
+     * On changes
+     */
     ngOnChanges() {
         this.setVisiblePages();
     }
 
+    /**
+     * Set page number
+     * @param {number} pageNumber Page number
+     */
     setPageNumber(pageNumber: number) {
         this.pageChange.emit(pageNumber);
     }
 
+    /**
+     * Set visible pages
+     */
     setVisiblePages() {
         const visiblePages: any[] = [];
 

@@ -6,6 +6,9 @@ import { NAV_ELEMENTS } from "src/app/constants/navigation.constant";
     templateUrl: "./header.component.html",
     styleUrls: ["./header.component.scss"]
 })
+/**
+ * Header Component
+ */
 export class HeaderComponent {
     readonly navList = [...NAV_ELEMENTS];
 }

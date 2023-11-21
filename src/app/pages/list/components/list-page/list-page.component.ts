@@ -8,6 +8,9 @@ import { HelperService } from "src/app/services/helper.service";
     selector: "app-list-page",
     templateUrl: "./list-page.component.html",
 })
+/**
+ * List Page Component
+ */
 export class ListPageComponent implements OnInit, OnDestroy {
     data?: any[];
     pageSize = 30;
@@ -23,18 +26,30 @@ export class ListPageComponent implements OnInit, OnDestroy {
         private helperService: HelperService,
     ) {}
 
+    /**
+     * Get current link
+     */
     get currentLink() {
         return this.activatedRoute.snapshot.data["link"];
     }
 
+    /**
+     * On init
+     */
     ngOnInit(): void {
         this.fetchData();
     }
 
+    /**
+     * On destroy
+     */
     ngOnDestroy(): void {
         this.subscriptions?.unsubscribe();
     }
 
+    /**
+     * Fetch data
+     */
     fetchData() {
         this.hasError = false;
         this.helperService.setLoading(true);
@@ -60,11 +75,19 @@ export class ListPageComponent implements OnInit, OnDestroy {
         );
     }
 
+    /**
+     * Set page size
+     * @param {number} pageSize Page size
+     */
     setPageSize(pageSize: number) {
         this.pageSize = pageSize;
         this.fetchData();
     }
 
+    /**
+     * Set page number
+     * @param {number} pageNumber Page number
+     */
     setPageNumber(pageNumber: number) {
         this.currentPage = pageNumber;
         this.fetchData();
