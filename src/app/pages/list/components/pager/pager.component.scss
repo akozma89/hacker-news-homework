@@ -8,9 +8,10 @@ ul {
   overflow-y: auto;
 
   li {
-    padding: 1rem 1.5rem;
+    padding: .5rem 1rem;
     border: 1px solid var(--border-color);
     border-radius: 5px;
+    font-size: .9rem;
 
     &.active {
       background-color: var(--link-color);

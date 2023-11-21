@@ -12,6 +12,9 @@ You can find this project here: [https://hacker-news-homework.vercel.app/](https
 ## Documentation
 `npm run build:doc`
 
+## Test Coverage
+`npm run test:coverage`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

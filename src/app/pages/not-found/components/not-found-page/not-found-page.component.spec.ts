@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import { ComponentFixture, TestBed, async } from "@angular/core/testing";
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { NotFoundPageComponent } from "./not-found-page.component";
 
@@ -7,14 +7,11 @@ describe("NotFoundPageComponent", () => {
     let component: NotFoundPageComponent;
     let fixture: ComponentFixture<NotFoundPageComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [NotFoundPageComponent]
         })
             .compileComponents();
-    }));
-
-    beforeEach(() => {
         fixture = TestBed.createComponent(NotFoundPageComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();

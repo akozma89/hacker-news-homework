@@ -1,27 +1,45 @@
 import { TestBed } from "@angular/core/testing";
+import { Component } from "@angular/core";
 import { AppComponent } from "./app.component";
+
+@Component({
+    selector: "app-header",
+    template: ""
+})
+class MockHeaderComponent {}
+
+@Component({
+    selector: "app-main",
+    template: ""
+})
+class MockMainComponent {}
+
+@Component({
+    selector: "app-footer",
+    template: ""
+})
+class MockFooterComponent {}
+
+@Component({
+    selector: "app-loader",
+    template: ""
+})
+class MockLoaderComponent {}
 
 describe("AppComponent", () => {
     beforeEach(() => TestBed.configureTestingModule({
-        declarations: [AppComponent]
+        declarations: [
+            AppComponent,
+            MockHeaderComponent,
+            MockMainComponent,
+            MockFooterComponent,
+            MockLoaderComponent
+        ],
     }));
 
     it("should create the app", () => {
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.componentInstance;
         expect(app).toBeTruthy();
-    });
-
-    it("should have as title 'hacker-news-homework'", () => {
-        const fixture = TestBed.createComponent(AppComponent);
-        const app = fixture.componentInstance;
-        expect(app).toBeTruthy();
-    });
-
-    it("should render title", () => {
-        const fixture = TestBed.createComponent(AppComponent);
-        fixture.detectChanges();
-        const compiled = fixture.nativeElement as HTMLElement;
-        expect(compiled.querySelector(".content span")?.textContent).toContain("hacker-news-homework app is running!");
     });
 });

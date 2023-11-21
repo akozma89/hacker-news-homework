@@ -1,20 +1,21 @@
 /* tslint:disable:no-unused-variable */
-import { ComponentFixture, TestBed, async } from "@angular/core/testing";
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
+import { RouterModule } from "@angular/router";
 import { HeaderComponent } from "./header.component";
 
 describe("HeaderComponent", () => {
     let component: HeaderComponent;
     let fixture: ComponentFixture<HeaderComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(() => {
         TestBed.configureTestingModule({
-            declarations: [HeaderComponent]
+            declarations: [HeaderComponent],
+            imports: [
+                RouterModule.forRoot([])
+            ]
         })
             .compileComponents();
-    }));
-
-    beforeEach(() => {
         fixture = TestBed.createComponent(HeaderComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
